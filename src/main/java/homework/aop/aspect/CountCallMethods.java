@@ -5,12 +5,10 @@ import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
-
 @Component
 @Aspect
 public class CountCallMethods {
-    int callCount = 0;
+    long callCount = 0;
     @After("execution(* homework.aop.service.PrintAccessService.printAccess(..))")
     public void countAccess(JoinPoint joinPoint){
         ++callCount;
