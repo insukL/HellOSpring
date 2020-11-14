@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class CountCallMethods {
     long callCount = 0;
-    @After("execution(* homework.aop.service.PrintAccessService.printAccess(..))")
+    @After("execution(* homework.aop.service.PrintAccessService.*Access(..))")
     public void countAccess(JoinPoint joinPoint){
         ++callCount;
         System.out.println("지금까지 " + joinPoint.getSignature().getName()
